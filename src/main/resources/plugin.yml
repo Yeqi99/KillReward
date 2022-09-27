@@ -1,0 +1,13 @@
+name: KillReward
+version: '${project.version}'
+main: yule.activity.killreward.KillReward
+api-version: 1.18
+authors: [ Yeqi ]
+softdepend:
+  - MythicMobs
+  - YeqiLib
+commands:
+  killreward:
+    aliases:
+      - kr
+      - kreward

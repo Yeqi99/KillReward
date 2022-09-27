@@ -1,0 +1,18 @@
+time:
+  start: "07:00"
+  end: "08:00"
+rank_reward:
+  normal:
+    - "[admin]say normal"
+    - "[admin]say *player*"
+  1:
+    - "[admin]say 1"
+      - "[admin]say *player*"
+  2:
+    - "[admin]say 2"
+      - "[admin]say *player*"
+mob_reward:
+  SkeletalKnight:
+    commandGroup:
+      - "[self]say skeletalKnight"
+    score: 10
