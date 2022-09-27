@@ -56,7 +56,6 @@ public class DamageMob implements Listener {
         Monopoly monopoly= getMonopoly(entity.getUniqueId());
         if(monopoly!=null){
             monopoly.getReward();
-            ScoreRank.look();
             monopolies.remove(monopoly);
         }
     }
