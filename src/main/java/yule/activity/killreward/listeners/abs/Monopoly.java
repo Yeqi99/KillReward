@@ -13,7 +13,7 @@ public class Monopoly {
     public UUID mobUUID;
     public String mmName;
     public boolean isMonopoly(UUID UUID){
-        if (mobUUID==UUID){
+        if (mobUUID.equals(UUID)){
             return true;
         }else {
             return false;

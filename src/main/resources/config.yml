@@ -1,18 +1,30 @@
+#活动时间控制
 time:
+  #开始时间
   start: "07:00"
+  #结束时间
   end: "08:00"
+#排名奖励(根据积分排序)
 rank_reward:
+  #没有写排名奖励的都按照默认执行
   normal:
     - "[admin]say normal"
     - "[admin]say *player*"
+  #第一名奖励
   1:
     - "[admin]say 1"
-      - "[admin]say *player*"
+    - "[admin]say *player*"
+  #第一名奖励
   2:
     - "[admin]say 2"
-      - "[admin]say *player*"
+    - "[admin]say *player*"
+  #...按照这个格式写
+#单个怪物奖励
 mob_reward:
+  #MM怪物配置文件中的调用名
   SkeletalKnight:
+    #怪物死后 拥有怪物所有权的玩家获得的指令奖励组
     commandGroup:
       - "[self]say skeletalKnight"
+    #怪物死后排行积分增加多少(支持小数)
     score: 10

@@ -16,6 +16,7 @@ public final class KillReward extends JavaPlugin {
         this.saveDefaultConfig();
         ListenerRegister.register(this,new DamageMob());
         CommandRegister.register(this,new KillRewardCommand(),"killreward");
+        ActControl.start();
     }
 
     @Override

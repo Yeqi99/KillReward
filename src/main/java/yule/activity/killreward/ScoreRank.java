@@ -14,6 +14,7 @@ import static yeqi.tools.yeqilib.message.Color.toColor;
 
 public class ScoreRank {
     public static List<PlayerInfo> playerInfoList=new ArrayList<>();
+    public static boolean isAct;
     public static void addScore(Player player,double score){
         if(hasScore(player)){
             setScore(player,score+getScore(player));
@@ -69,16 +70,20 @@ public class ScoreRank {
         getSort();
         for(int i=0;i<playerInfoList.size();i++){
             Player player=playerInfoList.get(i).player;
-            List<String> cmdGroup=KillReward.plugin.getConfig().getStringList("rank_reward."+i);
+            List<String> cmdGroup=KillReward.plugin.getConfig().getStringList("rank_reward."+(i+1));
+            player.sendMessage(cmdGroup.size()+"abc");
             if (cmdGroup.size()>0){
+                player.sendMessage(i+"rank");
                 FormatCommandGroup fcp=new FormatCommandGroup(player.getDisplayName(),cmdGroup);
                 Processing.runFormatCommandGroup(player,fcp);
             }else {
+                player.sendMessage("normal");
                 cmdGroup=KillReward.plugin.getConfig().getStringList("rank_reward.normal");
                 FormatCommandGroup fcp=new FormatCommandGroup(player.getDisplayName(),cmdGroup);
                 Processing.runFormatCommandGroup(player,fcp);
             }
         }
+        playerInfoList.clear();
     }
     public static void look(){
         for(PlayerInfo playerInfo:playerInfoList){
