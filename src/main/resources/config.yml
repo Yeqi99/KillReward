@@ -28,3 +28,21 @@ mob_reward:
       - "[self]say skeletalKnight"
     #怪物死后排行积分增加多少(支持小数)
     score: 10
+
+title:
+  start:
+    title: "活动开始了"
+    subTitle: "开始杀戮吧"
+    fadeIn: 20
+    fadeOut: 20
+    stay: 20
+  end:
+    title: "活动结束了"
+    subTitle: "优胜者是谁呢"
+    fadeIn: 20
+    fadeOut: 20
+    stay: 20
+rank_msg_format:
+  - "第一名 [%player%] 总积分 %killReward_points%"
+  - "第二名 [%player%] 总积分 %killReward_points%"
+  - "第三名 [%player%] 总积分 %killReward_points%"

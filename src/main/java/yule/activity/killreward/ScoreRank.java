@@ -1,5 +1,6 @@
 package yule.activity.killreward;
 
+import hook.PlaceholderAPIHook;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import yeqi.tools.yeqilib.command.FormatCommandGroup;
@@ -83,9 +84,16 @@ public class ScoreRank {
         playerInfoList.clear();
     }
     public static void look(){
-        for(PlayerInfo playerInfo:playerInfoList){
-            Bukkit.broadcastMessage(toColor( playerInfo.player.getDisplayName()+":"
-                    +playerInfo.score));
+        List<String> msg=KillReward.plugin.getConfig().getStringList("rank_msg_format");
+        for(int i=0;i<playerInfoList.size();i++){
+            PlayerInfo playerInfo=playerInfoList.get(i);
+            if(i>=msg.size()){
+                break;
+            }
+            String value=msg.get(i);
+            value= PlaceholderAPIHook.getPlaceholder(playerInfo.player,value);
+            value=toColor(value);
+            Bukkit.broadcastMessage(value);
         }
     }
 }

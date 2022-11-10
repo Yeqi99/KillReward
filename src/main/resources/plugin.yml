@@ -6,6 +6,7 @@ authors: [ Yeqi ]
 softdepend:
   - MythicMobs
   - YeqiLib
+  - PlaceholderAPI
 commands:
   killreward:
     aliases:

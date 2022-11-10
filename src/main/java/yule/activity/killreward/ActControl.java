@@ -27,14 +27,24 @@ public class ActControl {
                 //如果到达指定时间
                 if(TimeControl.atNow(now,startTime)){
                     if(!flag){
-                        new Sender(plugin).sendToAllTitle("击杀竞赛活动开始了","请开始你的表演",20,5,20);
+                        String title= plugin.getConfig().getString("title.start.title");
+                        String subTitle= plugin.getConfig().getString("title.start.subTitle");
+                        int fadeIn= plugin.getConfig().getInt("title.start.fadeIn");
+                        int fadeOut=  plugin.getConfig().getInt("title.start.fadeOut");
+                        int stay= plugin.getConfig().getInt("title.start.stay");
+                        new Sender(plugin).sendToAllTitle(title,subTitle,fadeIn,stay,fadeOut);
                         ScoreRank.isAct=true;
                         flag=true;
                     }
                 }else if(TimeControl.atNow(now,endTime)){
                     if(flag){
                         ScoreRank.isAct=false;
-                        new Sender(plugin).sendToAllTitle("击杀竞赛活动结束了","已发放排名奖励",20,5,20);
+                        String title= plugin.getConfig().getString("title.end.title");
+                        String subTitle= plugin.getConfig().getString("title.end.subTitle");
+                        int fadeIn= plugin.getConfig().getInt("title.end.fadeIn");
+                        int fadeOut=  plugin.getConfig().getInt("title.end.fadeOut");
+                        int stay= plugin.getConfig().getInt("title.end.stay");
+                        new Sender(plugin).sendToAllTitle(title,subTitle,fadeIn,stay,fadeOut);
                         ScoreRank.look();
                         new BukkitRunnable() {
                             @Override
